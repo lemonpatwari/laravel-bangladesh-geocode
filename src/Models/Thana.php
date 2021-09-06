@@ -16,4 +16,9 @@ class Thana extends Model
     {
         return $this->belongsTo(District::Class);
     }
+
+    public function unios()
+    {
+        return $this->hasMany(Union::class);
+    }
 }
