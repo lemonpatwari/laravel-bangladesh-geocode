@@ -72,12 +72,12 @@ $upazilas = $district->upazilas;
 
 ### Security
 
-If you discover any issues, please email [lemonpatwari@gmail.com](lemonpatwari@gmail.com)
-/ [hello@lemonpatwari.com](hello@lemonpatwari.com) instead of using the issue tracker.
+If you discover any issues, please email lemonpatwari@gmail.com
+/ hello@lemonpatwari.com instead of using the issue tracker.
 
 ## Credits
 
-- [FahimAhmed](https://github.com/fahim525)
+- [Fahim Ahmed](https://github.com/fahim525)
 
 ## License
 
