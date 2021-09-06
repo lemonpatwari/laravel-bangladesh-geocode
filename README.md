@@ -1,6 +1,6 @@
 # Bangladesh Geocode
 
-Division, District and Upazila/Thana,Union data of Bangladesh for Laravel application. Migration and seeders are ready.
+Division, District, Upazila/Thana and Union data of Bangladesh for Laravel application. Migration and seeders are ready.
 Just publish migrations and seeders and then migrate the db and run the seed command.
 
 ## Do not hesitate to share your thought, create issue or send pull request.
