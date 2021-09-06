@@ -1,0 +1,30 @@
+{
+    "name": "lemonpatwari/bangladeshgeocode",
+    "description": "Bangladesh Geocode",
+    "keywords": [
+        "lemonpatwari",
+        "bangladesh-geocode"
+    ],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Lemon Patwari",
+            "email": "lemonpatwari@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "lemonpatwari\\bangladeshgeocode\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "lemonpatwari\\bangladeshgeocode\\BangladeshGeocodeServiceProvider"
+            ]
+        }
+    }
+}
