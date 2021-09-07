@@ -17,24 +17,41 @@ class LpCommand extends Command
     {
         $this->info('Installing migration and seeders...');
 
-        exec('composer dump-autoload');
-        echo 'composer dump-autoload complete.' . "\r\n";
 
-        $migrate = \Artisan::call('migrate');
-        echo 'migrate complete.' . "\r\n";
+        $this->publishConfiguration();
+        $this->info('Published configuration');
+
+        exec('composer dump-autoload');
+        $this->info('composer dump-autoload complete.');
+
+        $migrate = \Artisan::call('migrate:fresh');
+        $this->info('migrate complete.');
 
         $migrate = \Artisan::call('db:seed --class=DivisionSeeder');
-        echo 'Division seeder run complete.' . "\r\n";
+        $this->info('Division seeder run complete.');
 
         $migrate = \Artisan::call('db:seed --class=DistrictSeeder');
-        echo 'District seeder run complete.' . "\r\n";
+        $this->info('District seeder run complete.');
 
         $migrate = \Artisan::call('db:seed --class=ThanaSeeder');
-        echo 'Thana seeder run complete.' . "\r\n";
+        $this->info('Thana / Upazila seeder run complete.');
 
         $migrate = \Artisan::call('db:seed --class=UnionSeeder');
-        echo 'Union seeder run complete.' . "\r\n";
+        $this->info('Union seeder run complete.');
 
         $this->info('Installed migration and seeders');
+    }
+
+    private function publishConfiguration($forcePublish = false)
+    {
+        $params = [
+            '--provider' => "lemonpatwari\bangladeshgeocode\BangladeshGeocodeServiceProvider"
+        ];
+
+        if ($forcePublish === true) {
+            $params['--force'] = true;
+        }
+
+        $this->call('vendor:publish', $params);
     }
 }
