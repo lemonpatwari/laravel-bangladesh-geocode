@@ -6,6 +6,10 @@ Just publish migrations and seeders and then migrate the db and run the seed com
 ## Do not hesitate to share your thought, create issue or send pull request.
 
 [![Total Downloads](https://img.shields.io/packagist/dt/lemonpatwari/bangladeshgeocode.svg?style=flat-square)](https://packagist.org/packages/lemonpatwari/bangladeshgeocode)
+[![Packagist License](https://poser.pugx.org/lemonpatwari/bangladeshgeocode/license.png)](http://choosealicense.com/licenses/mit/)
+[![Latest Stable Version](https://poser.pugx.org/lemonpatwari/bangladeshgeocode/version.png)](https://packagist.org/packages/lemonpatwari/bangladeshgeocode)
+
+
 
 ## Laravel Version Compatibility
 
@@ -39,7 +43,7 @@ php artisan vendor:publish --provider="lemonpatwari\bangladeshgeocode\Bangladesh
 
 ```
 
-##Publish Migration and seeders
+## Publish Migration and seeders
 
 You can publish migration and seeders via single command:
 
