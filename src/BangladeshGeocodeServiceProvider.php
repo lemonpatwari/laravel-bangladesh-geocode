@@ -3,6 +3,7 @@
 namespace lemonpatwari\bangladeshgeocode;
 
 use Illuminate\Support\ServiceProvider;
+use lemonpatwari\bangladeshgeocode\Console\LpCommand;
 
 class BangladeshGeocodeServiceProvider extends ServiceProvider
 {
@@ -28,6 +29,10 @@ class BangladeshGeocodeServiceProvider extends ServiceProvider
             $this->publishes([
                 __DIR__.'/../database/seeders' => database_path('seeders'),
             ],'lp-bangladesh-geocode-seeders');
+
+            $this->commands([
+                LpCommand::class,
+            ]);
 
         }
 
