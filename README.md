@@ -39,7 +39,7 @@ php artisan vendor:publish --provider="lemonpatwari\bangladeshgeocode\Bangladesh
 
 ```
 
-##Publish Migration and seeders
+## Publish Migration and seeders
 
 You can publish migration and seeders via single command:
 
