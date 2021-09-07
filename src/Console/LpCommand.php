@@ -24,7 +24,7 @@ class LpCommand extends Command
         exec('composer dump-autoload');
         $this->info('composer dump-autoload complete.');
 
-        $migrate = \Artisan::call('migrate:fresh');
+        $migrate = \Artisan::call('migrate');
         $this->info('migrate complete.');
 
         $migrate = \Artisan::call('db:seed --class=DivisionSeeder');
