@@ -27,14 +27,31 @@ You can install the package via composer:
 composer require lemonpatwari/bangladeshgeocode
 ```
 
-Publish Migration and seeders
+Laravel uses Package Auto-Discovery, so doesn't require you to manually add the ServiceProvider.
 
+
+### Laravel without auto-discovery:
 ```bash
 php artisan vendor:publish --provider="lemonpatwari\bangladeshgeocode\BangladeshGeocodeServiceProvider"
 
 #If you need to overrride previously published migrationa and seeders
 php artisan vendor:publish --provider="lemonpatwari\bangladeshgeocode\BangladeshGeocodeServiceProvider" --force
 
+```
+
+##Publish Migration and seeders
+
+You can publish migration and seeders via single command:
+
+
+```bash
+php artisan geolocation:install
+```
+
+You can publish migration and seeders via different command:
+
+
+```bash
 php artisan migrate
 
 composer dump-autoload
@@ -43,7 +60,6 @@ php artisan db:seed --class=DivisionSeeder
 php artisan db:seed --class=DistrictSeeder
 php artisan db:seed --class=ThanaSeeder
 php artisan db:seed --class=UnionSeeder
-
 ```
 
 ## Usage
@@ -65,7 +81,7 @@ $thanas = Thana::with('district','unions')->get(); //district belongsTo and unio
 $union = Union::all();
 
 $district = District::find(1);
-$upazilas = $district->upazilas;
+$thanas = $district->thanas;
 
 //Use any Laravel model functions...
 ```
