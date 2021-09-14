@@ -9,6 +9,8 @@ Just publish migrations and seeders and then migrate the db and run the seed com
 [![Packagist License](https://poser.pugx.org/lemonpatwari/bangladeshgeocode/license.png)](http://choosealicense.com/licenses/mit/)
 [![Latest Stable Version](https://poser.pugx.org/lemonpatwari/bangladeshgeocode/version.png)](https://packagist.org/packages/lemonpatwari/bangladeshgeocode)
 
+[![GitHub stars](https://img.shields.io/github/stars/lemonpatwari/bangladeshgeocode)](https://github.com/lemonpatwari/bangladeshgeocode/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/lemonpatwari/bangladeshgeocode)](https://github.com/lemonpatwari/bangladeshgeocode/network)
 
 
 ## Laravel Version Compatibility
