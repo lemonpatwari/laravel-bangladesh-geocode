@@ -3,14 +3,18 @@
     "description": "Bangladesh Geocode",
     "keywords": [
         "lemonpatwari",
-        "bangladesh-geocode"
+        "bangladesh-geocode",
+        "laravel",
+        "laravel-bangladesh-geocode"
     ],
     "type": "library",
     "license": "MIT",
+    "homepage": "https://github.com/lemonpatwari/laravel-bangladesh-geocode",
     "authors": [
         {
             "name": "Lemon Patwari",
-            "email": "lemonpatwari@gmail.com"
+            "email": "lemonpatwari@gmail.com",
+            "homepage": "https://lemonpatwari.com"
         }
     ],
     "minimum-stability": "dev",
