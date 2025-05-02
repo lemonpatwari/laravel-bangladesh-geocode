@@ -13,15 +13,21 @@ class CreateDivisionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('divisions', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('country_id');
-            $table->string('name')->unique();
-            $table->string('bn_name')->unique();
-            $table->boolean('status')->default(1);
-            $table->softDeletes();
-            $table->timestamps();
-        });
+        if (!Schema::hasTable('divisions')) {
+            Schema::create('divisions', function (Blueprint $table) {
+                $table->id();
+                $table->unsignedBigInteger('country_id');
+                $table->string('name')->unique();
+                $table->string('bn_name')->unique();
+                $table->boolean('status')->default(1)->comment('1 = active, 0 = inactive');
+                $table->softDeletes();
+                $table->timestamps();
+
+                // Indexes
+                $table->index('country_id');
+                $table->index('status');
+            });
+        }
     }
 
     /**

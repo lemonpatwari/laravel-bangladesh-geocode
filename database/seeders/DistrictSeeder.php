@@ -13,6 +13,11 @@ class DistrictSeeder extends Seeder
      */
     public function run()
     {
+        // Check if table is not empty
+        if (\DB::table('districts')->exists()) {
+            \DB::table('districts')->truncate();
+        }
+
         $districts = [
             ['id' => '1', 'division_id' => '1', 'name' => 'Comilla', 'bn_name' => 'কুমিল্লা', 'lat' => '23.4682747', 'lon' => '91.1788135', 'url' => 'www.comilla.gov.bd'],
             ['id' => '2', 'division_id' => '1', 'name' => 'Feni', 'bn_name' => 'ফেনী', 'lat' => '23.023231', 'lon' => '91.3840844', 'url' => 'www.feni.gov.bd'],

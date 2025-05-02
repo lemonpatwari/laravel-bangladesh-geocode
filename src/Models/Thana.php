@@ -10,7 +10,7 @@ class Thana extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $guarded = [];
+    protected $fillable = ['name', 'bn_name', 'url', 'status', 'district_id'];
 
     public function district()
     {

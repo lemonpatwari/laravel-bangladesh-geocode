@@ -13,6 +13,11 @@ class UnionSeeder extends Seeder
      */
     public function run()
     {
+        // Check if table is not empty
+        if (\DB::table('unions')->exists()) {
+            \DB::table('unions')->truncate();
+        }
+
         $unions = [
             ['id' => '1', 'thana_id' => '1', 'name' => 'Subil', 'bn_name' => 'সুবিল', 'url' => 'subilup.comilla.gov.bd'],
             ['id' => '2', 'thana_id' => '1', 'name' => 'North Gunaighor', 'bn_name' => 'উত্তর গুনাইঘর', 'url' => 'gunaighornorthup.comilla.gov.bd'],

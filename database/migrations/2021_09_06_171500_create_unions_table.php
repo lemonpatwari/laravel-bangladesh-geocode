@@ -13,16 +13,22 @@ class CreateUnionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('unions', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('bn_name')->nullable();
-            $table->string('url')->nullable();
-            $table->boolean('status')->default(1);
-            $table->foreignId('thana_id')->constrained('thanas')->onDelete('cascade');
-            $table->softDeletes();
-            $table->timestamps();
-        });
+        if (!Schema::hasTable('unions')) {
+            Schema::create('unions', function (Blueprint $table) {
+                $table->id();
+                $table->string('name');
+                $table->string('bn_name')->nullable();
+                $table->string('url')->nullable();
+                $table->boolean('status')->default(1)->index()->comment('1 = active, 0 = inactive');
+                $table->foreignId('thana_id')->constrained('thanas')->onDelete('cascade');
+                $table->softDeletes();
+                $table->timestamps();
+
+
+                // Additional index for performance
+                $table->index('thana_id');
+            });
+        }
     }
 
     /**

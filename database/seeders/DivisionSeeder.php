@@ -13,6 +13,11 @@ class DivisionSeeder extends Seeder
      */
     public function run()
     {
+        // Check if table is not empty
+        if (\DB::table('divisions')->exists()) {
+            \DB::table('divisions')->truncate();
+        }
+
         $data = [
             ['id'=>1,'bn_name' => 'চট্টগ্রাম', 'country_id' => 1, 'name' => 'Chattogram'],
             ['id'=>2,'bn_name' => 'রাজশাহী', 'country_id' => 1, 'name' => 'Rajshahi'],

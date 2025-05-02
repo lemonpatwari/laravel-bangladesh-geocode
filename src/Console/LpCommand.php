@@ -3,7 +3,6 @@
 namespace lemonpatwari\bangladeshgeocode\Console;
 
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\File;
 
 class LpCommand extends Command
 {

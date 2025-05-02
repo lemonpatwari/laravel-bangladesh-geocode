@@ -13,6 +13,11 @@ class ThanaSeeder extends Seeder
      */
     public function run()
     {
+        // Check if table is not empty
+        if (\DB::table('thanas')->exists()) {
+            \DB::table('thanas')->truncate();
+        }
+
         $thanas = [
             ['id' => '1', 'district_id' => '1', 'name' => 'Debidwar', 'bn_name' => 'দেবিদ্বার', 'url' => 'debidwar.comilla.gov.bd'],
             ['id' => '2', 'district_id' => '1', 'name' => 'Barura', 'bn_name' => 'বরুড়া', 'url' => 'barura.comilla.gov.bd'],
