@@ -16,6 +16,7 @@ class DivisionSeeder extends Seeder
         // Check if table is not empty
         if (\DB::table('divisions')->exists()) {
             \DB::table('divisions')->truncate();
+            \DB::statement('ALTER TABLE divisions AUTO_INCREMENT = 1');
         }
 
         $data = [

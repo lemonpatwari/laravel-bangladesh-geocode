@@ -16,6 +16,7 @@ class ThanaSeeder extends Seeder
         // Check if table is not empty
         if (\DB::table('thanas')->exists()) {
             \DB::table('thanas')->truncate();
+            \DB::statement('ALTER TABLE thanas AUTO_INCREMENT = 1');
         }
 
         $thanas = [

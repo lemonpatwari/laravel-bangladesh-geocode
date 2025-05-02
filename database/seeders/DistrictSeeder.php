@@ -16,6 +16,8 @@ class DistrictSeeder extends Seeder
         // Check if table is not empty
         if (\DB::table('districts')->exists()) {
             \DB::table('districts')->truncate();
+            // Reset auto-increment counter
+            \DB::statement('ALTER TABLE districts AUTO_INCREMENT = 1');
         }
 
         $districts = [

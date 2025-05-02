@@ -16,6 +16,7 @@ class UnionSeeder extends Seeder
         // Check if table is not empty
         if (\DB::table('unions')->exists()) {
             \DB::table('unions')->truncate();
+            \DB::statement('ALTER TABLE unions AUTO_INCREMENT = 1');
         }
 
         $unions = [
