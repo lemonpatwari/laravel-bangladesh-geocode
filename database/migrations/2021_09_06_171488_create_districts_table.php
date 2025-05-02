@@ -13,25 +13,29 @@ class CreateDistrictsTable extends Migration
      */
     public function up()
     {
-        if (!Schema::hasTable('districts')) {
-            Schema::create('districts', function (Blueprint $table) {
-                $table->id();
-                $table->string('name');
-                $table->string('bn_name')->nullable();
-                $table->string('lat')->nullable();
-                $table->string('lon')->nullable();
-                $table->string('url')->nullable();
-                $table->boolean('status')->default(1)->index()->comment('1 = active, 0 = inactive');
-                $table->foreignId('division_id')->constrained('divisions')->onDelete('cascade');
-                $table->softDeletes();
-                $table->timestamps();
-
-
-                // Additional indexes
-                $table->index('division_id');
-                $table->index('name');
-            });
+        // Drop the table if it already exists
+        if (Schema::hasTable('districts')) {
+            Schema::drop('districts');
         }
+
+        Schema::create('districts', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('bn_name')->nullable();
+            $table->string('lat')->nullable();
+            $table->string('lon')->nullable();
+            $table->string('url')->nullable();
+            $table->boolean('status')->default(1)->index()->comment('1 = active, 0 = inactive');
+            $table->foreignId('division_id')->constrained('divisions')->onDelete('cascade');
+            $table->softDeletes();
+            $table->timestamps();
+
+
+            // Additional indexes
+            $table->index('division_id');
+            $table->index('name');
+        });
+
     }
 
     /**

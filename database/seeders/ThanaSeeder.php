@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class ThanaSeeder extends Seeder
 {
@@ -13,11 +14,6 @@ class ThanaSeeder extends Seeder
      */
     public function run()
     {
-        // Check if table is not empty
-        if (\DB::table('thanas')->exists()) {
-            \DB::table('thanas')->truncate();
-            \DB::statement('ALTER TABLE thanas AUTO_INCREMENT = 1');
-        }
 
         $thanas = [
             ['id' => '1', 'district_id' => '1', 'name' => 'Debidwar', 'bn_name' => 'দেবিদ্বার', 'url' => 'debidwar.comilla.gov.bd'],
@@ -585,6 +581,29 @@ class ThanaSeeder extends Seeder
             ['id' => '562', 'district_id' => '72', 'name' => 'Tongi East Thana', 'bn_name' => 'টঙ্গী পূর্ব থানা', 'url' => 'debidwar.comilla.gov.bd'],
         ];
 
-        \DB::table('thanas')->insert($thanas);
+        try {
+            DB::beginTransaction();
+
+            // Ensure divisions exist before inserting
+            if (!DB::table('thanas')->count()) {
+                $this->command->error('Thanas table is empty. Please seed thanas first.');
+                return;
+            }
+
+            // Truncate and reset if necessary
+            DB::statement('SET FOREIGN_KEY_CHECKS=0');
+            DB::table('thanas')->truncate();
+            DB::statement('ALTER TABLE thanas AUTO_INCREMENT = 1');
+            DB::statement('SET FOREIGN_KEY_CHECKS=1');
+
+            DB::table('thanas')->insert($thanas);
+            DB::commit();
+
+            $this->command->info('Districts seeded successfully.');
+        } catch (\Exception $e) {
+            DB::rollBack();
+            \Log::error('ThanaSeeder failed: ' . $e->getMessage());
+            $this->command->error('Error seeding thana: ' . $e->getMessage());
+        }
     }
 }

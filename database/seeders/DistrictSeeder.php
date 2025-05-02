@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DistrictSeeder extends Seeder
 {
@@ -13,13 +14,6 @@ class DistrictSeeder extends Seeder
      */
     public function run()
     {
-        // Check if table is not empty
-        if (\DB::table('districts')->exists()) {
-            \DB::table('districts')->truncate();
-            // Reset auto-increment counter
-            \DB::statement('ALTER TABLE districts AUTO_INCREMENT = 1');
-        }
-
         $districts = [
             ['id' => '1', 'division_id' => '1', 'name' => 'Comilla', 'bn_name' => 'কুমিল্লা', 'lat' => '23.4682747', 'lon' => '91.1788135', 'url' => 'www.comilla.gov.bd'],
             ['id' => '2', 'division_id' => '1', 'name' => 'Feni', 'bn_name' => 'ফেনী', 'lat' => '23.023231', 'lon' => '91.3840844', 'url' => 'www.feni.gov.bd'],
@@ -95,6 +89,29 @@ class DistrictSeeder extends Seeder
             ['id' => '72', 'division_id' => '6', 'name' => 'Gazipur Metro', 'bn_name' => 'গাজীপুর মেট্রো', 'lat' => '23.4682747', 'lon' => '91.1788135', 'url' => 'www.aa.gov.bd'],
         ];
 
-        \DB::table('districts')->insert($districts);
+        try {
+            DB::beginTransaction();
+
+            // Ensure divisions exist before inserting
+            if (!DB::table('divisions')->count()) {
+                $this->command->error('Divisions table is empty. Please seed divisions first.');
+                return;
+            }
+
+            // Truncate and reset if necessary
+            DB::statement('SET FOREIGN_KEY_CHECKS=0');
+            DB::table('districts')->truncate();
+            DB::statement('ALTER TABLE districts AUTO_INCREMENT = 1');
+            DB::statement('SET FOREIGN_KEY_CHECKS=1');
+
+            DB::table('districts')->insert($districts);
+            DB::commit();
+
+            $this->command->info('Districts seeded successfully.');
+        } catch (\Exception $e) {
+            DB::rollBack();
+            \Log::error('DistrictSeeder failed: ' . $e->getMessage());
+            $this->command->error('Error seeding districts: ' . $e->getMessage());
+        }
     }
 }

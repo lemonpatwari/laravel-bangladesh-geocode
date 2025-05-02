@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class UnionSeeder extends Seeder
 {
@@ -13,11 +14,6 @@ class UnionSeeder extends Seeder
      */
     public function run()
     {
-        // Check if table is not empty
-        if (\DB::table('unions')->exists()) {
-            \DB::table('unions')->truncate();
-            \DB::statement('ALTER TABLE unions AUTO_INCREMENT = 1');
-        }
 
         $unions = [
             ['id' => '1', 'thana_id' => '1', 'name' => 'Subil', 'bn_name' => 'সুবিল', 'url' => 'subilup.comilla.gov.bd'],
@@ -4562,6 +4558,30 @@ class UnionSeeder extends Seeder
             ['id' => '4540', 'thana_id' => '491', 'name' => 'Kaliara Babragati', 'bn_name' => 'কালিয়ারা গাবরাগাতি', 'url' => 'kaliaragabragatiup . netrokona . gov . bd']
         ];
 
-        \DB::table('unions')->insert($unions);
+        try {
+            DB::beginTransaction();
+
+            // Ensure divisions exist before inserting
+            if (!DB::table('unions')->count()) {
+                $this->command->error('Unions table is empty. Please seed unions first.');
+                return;
+            }
+
+            // Truncate and reset if necessary
+            DB::statement('SET FOREIGN_KEY_CHECKS=0');
+            DB::table('unions')->truncate();
+            DB::statement('ALTER TABLE unions AUTO_INCREMENT = 1');
+            DB::statement('SET FOREIGN_KEY_CHECKS=1');
+
+            DB::table('unions')->insert($unions);
+            DB::commit();
+
+            $this->command->info('Unions seeded successfully.');
+        } catch (\Exception $e) {
+            DB::rollBack();
+            \Log::error('UnionSeeder failed: ' . $e->getMessage());
+            $this->command->error('Error seeding union: ' . $e->getMessage());
+        }
+
     }
 }
