@@ -578,6 +578,14 @@ class ThanaSeeder extends Seeder
             ['id' => '560', 'district_id' => '72', 'name' => 'Pubail Thana', 'bn_name' => 'পূবাইল থানা', 'url' => 'debidwar.comilla.gov.bd', 'latitude' => '23.8573', 'longitude' => '90.3817'],
             ['id' => '561', 'district_id' => '72', 'name' => 'Tongi West Thana', 'bn_name' => 'টঙ্গী পশ্চিম থানা', 'url' => 'debidwar.comilla.gov.bd', 'latitude' => '23.8711', 'longitude' => '90.3856'],
             ['id' => '562', 'district_id' => '72', 'name' => 'Tongi East Thana', 'bn_name' => 'টঙ্গী পূর্ব থানা', 'url' => 'debidwar.comilla.gov.bd', 'latitude' => '23.8668', 'longitude' => '90.3895'],
+
+            // new
+            ['id' => '563', 'district_id' => '9', 'name' => 'Eidgaon', 'bn_name' => 'ঈদগাঁও', 'url' => 'eidgaon.coxsbazar.gov.bd', 'latitude' => '21.4729', 'longitude' => '92.0245'],
+            ['id' => '564', 'district_id' => '39', 'name' => 'Madhyanagar', 'bn_name' => 'মধ্যনগর', 'url' => 'madhyanagar.sunamganj.gov.bd','latitude' => '24.8278', 'longitude' => '90.9778'],
+            ['id' => '565', 'district_id' => '50', 'name' => 'Dasar', 'bn_name' => 'ডাসার', 'url' => 'dasar.madaripur.gov.bd','latitude' => '23.1381', 'longitude' => '90.1703'],
+            ['id' => '566', 'district_id' => '38', 'name' => 'Shayestaganj', 'bn_name' => 'শায়েস্তাগঞ্জ', 'url' => 'shayestaganj.habiganj.gov.bd','latitude' => '24.2682', 'longitude' => '91.4525'],
+            ['id' => '567', 'district_id' => '39', 'name' => 'Shantiganj', 'bn_name' => 'শান্তিগঞ্জ', 'url' => 'shantiganj.sunamganj.gov.bd','latitude' => '24.9395', 'longitude' => '91.4136'],
+            ['id' => '568', 'district_id' => '34', 'name' => 'Borhan Uddin', 'bn_name' => 'বোরহান উদ্দিন', 'url' => 'borhanuddin.bhola.gov.bd','latitude' => '22.4753', 'longitude' => '90.7153'],
         ];
 
         try {
