@@ -311,8 +311,6 @@ class ThanaSeeder extends Seeder
             ['id' => '293', 'district_id' => '38', 'name' => 'Bahubal', 'bn_name' => 'বাহুবল', 'url' => 'bahubal.habiganj.gov.bd', 'latitude' => '24.7267', 'longitude' => '91.3345'],
             ['id' => '294', 'district_id' => '38', 'name' => 'Ajmiriganj', 'bn_name' => 'আজমিরীগঞ্জ', 'url' => 'ajmiriganj.habiganj.gov.bd', 'latitude' => '24.5798', 'longitude' => '91.4229'],
             ['id' => '295', 'district_id' => '38', 'name' => 'Baniachong', 'bn_name' => 'বানিয়াচং', 'url' => 'baniachong.habiganj.gov.bd', 'latitude' => '24.7599', 'longitude' => '91.5245'],
-
-
             ['id' => '296', 'district_id' => '38', 'name' => 'Lakhai', 'bn_name' => 'লাখাই', 'url' => 'lakhai.habiganj.gov.bd', 'latitude' => '24.4179', 'longitude' => '91.5122'],
             ['id' => '297', 'district_id' => '38', 'name' => 'Chunarughat', 'bn_name' => 'চুনারুঘাট', 'url' => 'chunarughat.habiganj.gov.bd', 'latitude' => '24.5711', 'longitude' => '91.4551'],
             ['id' => '298', 'district_id' => '38', 'name' => 'Habiganj Sadar', 'bn_name' => 'হবিগঞ্জ সদর', 'url' => 'habiganjsadar.habiganj.gov.bd', 'latitude' => '24.3782', 'longitude' => '91.4129'],
@@ -334,13 +332,9 @@ class ThanaSeeder extends Seeder
             ['id' => '314', 'district_id' => '40', 'name' => 'Palash', 'bn_name' => 'পলাশ', 'url' => 'palash.narsingdi.gov.bd', 'latitude' => '23.9565', 'longitude' => '90.7629'],
             ['id' => '315', 'district_id' => '40', 'name' => 'Raipura', 'bn_name' => 'রায়পুরা', 'url' => 'raipura.narsingdi.gov.bd', 'latitude' => '23.9174', 'longitude' => '90.7358'],
             ['id' => '316', 'district_id' => '40', 'name' => 'Shibpur', 'bn_name' => 'শিবপুর', 'url' => 'shibpur.narsingdi.gov.bd', 'latitude' => '23.9080', 'longitude' => '90.8032'],
-            ['id' => '316', 'district_id' => '40', 'name' => 'Shibpur', 'bn_name' => 'শিবপুর', 'url' => 'shibpur.narsingdi.gov.bd', 'latitude' => '23.9080', 'longitude' => '90.8032'],
             ['id' => '317', 'district_id' => '41', 'name' => 'Kapasia', 'bn_name' => 'কাপাসিয়া', 'url' => 'kapasia.gazipur.gov.bd', 'latitude' => '23.9992', 'longitude' => '90.4180'],
             ['id' => '318', 'district_id' => '41', 'name' => 'Kaliganj', 'bn_name' => 'কালীগঞ্জ', 'url' => 'kaliganj.gazipur.gov.bd', 'latitude' => '23.9992', 'longitude' => '90.4180'],
             ['id' => '319', 'district_id' => '41', 'name' => 'Kaliakair', 'bn_name' => 'কালিয়াকৈর', 'url' => 'kaliakair.gazipur.gov.bd', 'latitude' => '23.9992', 'longitude' => '90.4180'],
-            ['id' => '317', 'district_id' => '41', 'name' => 'Kaliganj', 'bn_name' => 'কালীগঞ্জ', 'url' => 'kaliganj.gazipur.gov.bd','latitude' => '23.9992', 'longitude' => '90.4180'],
-            ['id' => '318', 'district_id' => '41', 'name' => 'Kaliakair', 'bn_name' => 'কালিয়াকৈর', 'url' => 'kaliakair.gazipur.gov.bd', 'latitude' => '23.9992', 'longitude' => '90.4180'],
-            ['id' => '319', 'district_id' => '41', 'name' => 'Kapasia', 'bn_name' => 'কাপাসিয়া', 'url' => 'kapasia.gazipur.gov.bd', 'latitude' => '23.9992', 'longitude' => '90.4180'],
             ['id' => '320', 'district_id' => '41', 'name' => 'Gazipur Sadar', 'bn_name' => 'গাজীপুর সদর', 'url' => 'sadar.gazipur.gov.bd', 'latitude' => '23.9992', 'longitude' => '90.4180'],
             ['id' => '321', 'district_id' => '41', 'name' => 'Sreepur', 'bn_name' => 'শ্রীপুর', 'url' => 'sreepur.gazipur.gov.bd',  'latitude' => '23.9992',  'longitude' => 90.4180],
             ['id' => '322', 'district_id' => '42', 'name' => 'Shariatpur Sadar', 'bn_name' => 'শরিয়তপুর সদর', 'url' => 'sadar.shariatpur.gov.bd', 'latitude' => '23.6090', 'longitude' => '90.6364'],
