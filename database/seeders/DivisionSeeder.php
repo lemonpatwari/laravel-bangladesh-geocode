@@ -24,14 +24,17 @@ class DivisionSeeder extends Seeder
             ['id' => 8, 'bn_name' => 'ময়মনসিংহ', 'country_id' => 1, 'name' => 'Mymensingh', 'latitude' => 24.7471, 'longitude' => 90.4203, 'url' => 'mymensingh.gov.bd'],
         ];
 
+
+
         try {
-            DB::beginTransaction();
-
-            DB::table('divisions')->truncate(); // optional if you want to reset
+            // Truncate and reset if necessary
+            DB::statement('SET FOREIGN_KEY_CHECKS=0');
+            DB::table('divisions')->truncate();
             DB::statement('ALTER TABLE divisions AUTO_INCREMENT = 1');
+            DB::statement('SET FOREIGN_KEY_CHECKS=1');
 
+            DB::beginTransaction();
             DB::table('divisions')->insert($data);
-
             DB::commit();
             $this->command->info('Divisions seeded successfully.');
         } catch (\Exception $e) {

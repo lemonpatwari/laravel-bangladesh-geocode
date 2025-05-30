@@ -4560,20 +4560,13 @@ class UnionSeeder extends Seeder
         ];
 
         try {
-            DB::beginTransaction();
-
-            // Ensure divisions exist before inserting
-            if (!DB::table('unions')->count()) {
-                $this->command->error('Unions table is empty. Please seed unions first.');
-                return;
-            }
-
             // Truncate and reset if necessary
             DB::statement('SET FOREIGN_KEY_CHECKS=0');
             DB::table('unions')->truncate();
             DB::statement('ALTER TABLE unions AUTO_INCREMENT = 1');
             DB::statement('SET FOREIGN_KEY_CHECKS=1');
 
+            DB::beginTransaction();
             DB::table('unions')->insert($unions);
             DB::commit();
 

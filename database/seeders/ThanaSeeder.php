@@ -587,20 +587,13 @@ class ThanaSeeder extends Seeder
         ];
 
         try {
-            DB::beginTransaction();
-
-            // Ensure divisions exist before inserting
-            if (!DB::table('thanas')->count()) {
-                $this->command->error('Thanas table is empty. Please seed thanas first.');
-                return;
-            }
-
             // Truncate and reset if necessary
             DB::statement('SET FOREIGN_KEY_CHECKS=0');
             DB::table('thanas')->truncate();
             DB::statement('ALTER TABLE thanas AUTO_INCREMENT = 1');
             DB::statement('SET FOREIGN_KEY_CHECKS=1');
 
+            DB::beginTransaction();
             DB::table('thanas')->insert($thanas);
             DB::commit();
 

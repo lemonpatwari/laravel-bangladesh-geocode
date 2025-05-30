@@ -91,13 +91,6 @@ class DistrictSeeder extends Seeder
         ];
 
         try {
-            DB::beginTransaction();
-
-            // Ensure divisions exist before inserting
-            if (!DB::table('divisions')->count()) {
-                $this->command->error('Divisions table is empty. Please seed divisions first.');
-                return;
-            }
 
             // Truncate and reset if necessary
             DB::statement('SET FOREIGN_KEY_CHECKS=0');
@@ -105,6 +98,8 @@ class DistrictSeeder extends Seeder
             DB::statement('ALTER TABLE districts AUTO_INCREMENT = 1');
             DB::statement('SET FOREIGN_KEY_CHECKS=1');
 
+
+            DB::beginTransaction();
             DB::table('districts')->insert($districts);
             DB::commit();
 
