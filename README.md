@@ -118,10 +118,10 @@ $thanas = $district->thanas;
 ### Model fields
 
 Each model exposes fillable fields (examples):
-- Division: `country_id`, `name`, `bn_name`, `status`
-- District: `name`, `bn_name`, `lat`, `lon`, `url`, `status`, `division_id`
-- Thana: `name`, `bn_name`, `url`, `status`, `district_id`
-- Union: `name`, `bn_name`, `url`, `status`, `thana_id`
+- Division: `country_id`, `name`, `bn_name`, `status`, `latitude`, `longitude`, `url`
+- District: `name`, `bn_name`, `lat`, `lon`, `url`, `status`, `division_id`, `latitude`,`longitude`
+- Thana: `name`, `bn_name`, `url`, `status`, `district_id`, `latitude`, `longitude`
+- Union: `name`, `bn_name`, `url`, `status`, `thana_id`,`latitude`, `longitude`
 
 
 ### Security
