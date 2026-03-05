@@ -10,5 +10,5 @@ class Union extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ['name', 'bn_name', 'url', 'status', 'thana_id'];
+    protected $fillable = ['name', 'bn_name', 'url', 'status', 'thana_id','latitude','longitude'];
 }

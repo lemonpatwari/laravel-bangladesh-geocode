@@ -10,7 +10,7 @@ class District extends Model
 {
     use HasFactory,SoftDeletes;
 
-    protected $fillable = ['name', 'bn_name', 'lat', 'lon', 'url', 'status', 'division_id'];
+    protected $fillable = ['name', 'bn_name', 'lat', 'lon', 'url', 'status', 'division_id','latitude','longitude'];
 
     public function division()
     {
